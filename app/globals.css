@@ -1,0 +1,141 @@
+:root {
+  --bg-dark: #202e24;
+  --bg-light: #f4f3e9;
+  --text-on-dark: #f1ead9;
+  --text-on-light: #273c2b;
+  --text-on-dark-dim: #c9bfa8;
+  --accent-growth: #38563b;
+  --accent-growth-bright: #a9c392;
+  --accent-harvest: #b5793a;
+  --accent-milk: #f3eeda;
+  --rule: rgba(241, 234, 217, 0.14);
+  --rule-on-light: rgba(34, 27, 18, 0.14);
+  --font-display: var(--font-newsreader), Georgia, 'Times New Roman', serif;
+  --font-body: var(--font-public-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Shared layout primitives, used across landing sections ---------- */
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section.band {
+  padding: 120px 0;
+  position: relative;
+}
+
+.bandLight {
+  background: var(--bg-light);
+  color: var(--text-on-light);
+}
+
+.kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  color: var(--accent-growth-bright);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.band h2 {
+  font-size: clamp(34px, 4vw, 52px);
+  max-width: 23ch;
+}
+
+.band .lede {
+  margin-top: 18px;
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 56ch;
+  opacity: 0.82;
+}
+
+.heroActions {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: var(--accent-growth);
+  color: #f1ead9;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  transition: background .2s, transform .2s;
+}
+
+.btnGhost {
+  padding: 14px 26px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid var(--rule);
+  color: var(--text-on-dark);
+  text-decoration: none;
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.bandLight .kicker { color: #567047; }
+.btnPrimary:hover { background: #496942; transform: translateY(-1px); }
+.btnPrimary:disabled { opacity: .65; cursor: wait; transform: none; }
+:focus-visible { outline: 3px solid #b68a45; outline-offset: 5px; }
+button, input, select, textarea { font: inherit; }
+.skipLink { position: fixed; top: -100px; left: 16px; padding: 14px 20px; background: #fff; color: #243a2a; z-index: 100; }
+.skipLink:focus { top: 12px; }
+@media (max-width: 640px) { section.band { padding: 72px 0; } .wrap { padding-left: 22px; padding-right: 22px; } .band .lede { font-size: 15px; } }

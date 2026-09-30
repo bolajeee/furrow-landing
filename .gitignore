@@ -1,0 +1,8 @@
+node_modules
+.next
+.next-preview
+out
+.env*.local
+*.log
+*.tsbuildinfo
+.ui-preview

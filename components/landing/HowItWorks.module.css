@@ -1,0 +1,33 @@
+.steps {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--accent-growth-bright);
+}
+
+.step h3 {
+  font-size: 25px;
+  margin: 10px 0 8px;
+}
+
+.step { border-top: 1px solid var(--rule); padding-top: 25px; }
+.num { display: inline-grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--rule); border-radius: 50%; margin-bottom: 14px; }
+
+.step p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+@media (max-width: 860px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

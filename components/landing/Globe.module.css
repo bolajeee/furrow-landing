@@ -1,0 +1,169 @@
+.globePin {
+  padding: 90px 0;
+  position: relative;
+}
+
+.globeStage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg-dark);
+}
+
+.globeGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.canvasWrap {
+  position: relative;
+  height: 480px;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hoverable {
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 6;
+  pointer-events: none;
+  max-width: 220px;
+  padding: 12px 14px;
+  border-radius: 3px;
+  background: var(--accent-milk);
+  color: var(--text-on-light);
+  border: 1px solid rgba(34, 27, 18, 0.12);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  transform: translate(-50%, -100%) translateY(-10px) scale(0.96);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.tooltipVisible {
+  opacity: 1;
+  transform: translate(-50%, -100%) translateY(-16px) scale(1);
+}
+
+.tooltipRegion {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-growth);
+}
+
+.tooltipComment {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--accent-milk);
+  rotate: 45deg;
+  border-right: 1px solid rgba(34, 27, 18, 0.12);
+  border-bottom: 1px solid rgba(34, 27, 18, 0.12);
+}
+
+.globeCopy {
+  padding-right: 6vw;
+}
+
+.globeCopy h2 {
+  font-size: clamp(28px, 3.4vw, 42px);
+  max-width: 13ch;
+}
+
+.statQueue {
+  display: grid;
+  overflow: hidden;
+  margin-top: 36px;
+  border-top: 1px solid var(--rule);
+}
+
+.statCard {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .45s ease, transform .55s cubic-bezier(.22, 1, .36, 1), visibility .45s;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.statRegion {
+  font-size: 13px;
+  color: var(--accent-growth-bright);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.statHeadline {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-on-dark-dim);
+  margin-top: 16px;
+}
+
+.statDots {
+  display: flex;
+  gap: 2px;
+}
+
+.dot,
+.dotActive {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: background 0.25s;
+}
+
+.dot {
+  background: var(--rule);
+}
+
+.dotActive {
+  background: var(--accent-growth-bright);
+}
+
+@media (max-width: 860px) {
+  .globePin {
+    padding: 65px 0;
+  }
+  .globeGrid {
+    grid-template-columns: 1fr;
+  }
+  .canvasWrap {
+    height: 320px;
+  }
+  .globeCopy {
+    padding-right: 0;
+  }
+}
+
+.globeCopy :global(.lede) { font-size: 15px; line-height: 1.8; color: var(--text-on-dark-dim); margin-top: 20px; }
+.exampleNote { margin-top: 20px; font-size: 11px; line-height: 1.7; color: var(--text-on-dark-dim); }
+.dot, .dotActive { width: 28px; height: 28px; border: 9px solid var(--bg-dark); padding: 0; cursor: pointer; }
+.cardActive { opacity: 1; visibility: visible; transform: translateY(0); }
+.comment { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 28px); line-height: 1.4; margin-top: 16px; }
+.controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 20px; }
+.arrow { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--rule); background: transparent; color: var(--text-on-dark); cursor: pointer; transition: background .2s, border-color .2s; }
+.arrow svg { width: 22px; height: 22px; }
+.arrow:hover { background: #354b36; border-color: var(--accent-growth-bright); }
+@media (prefers-reduced-motion: reduce) { .statCard { transform: none; transition: none; } }
