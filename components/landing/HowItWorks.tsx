@@ -21,17 +21,19 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="band" id="how">
-      <div className="wrap">
-        <div className="kicker">Built for real growing seasons</div>
-        <h2>Your patch of earth.<br />A world of possibility.</h2>
-        <p className="lede">
-          Most farming content online is written for someone else&rsquo;s climate. Furrow starts
-          with what you&rsquo;re growing and where, then keeps every lesson, answer, and grower
-          conversation scoped to that.
-        </p>
+      <div className={`wrap ${styles.split}`}>
+        <div className={styles.sticky}>
+          <div className="kicker">Built for real growing seasons</div>
+          <h2>Your patch of earth.<br />A world of possibility.</h2>
+          <p className="lede">
+            Most farming content online is written for someone else&rsquo;s climate. Furrow starts
+            with what you&rsquo;re growing and where, then keeps every lesson, answer, and grower
+            conversation scoped to that.
+          </p>
+        </div>
         <div className={styles.steps}>
-          {steps.map((step) => (
-            <div className={styles.step} key={step.num}>
+          {steps.map((step, i) => (
+            <div className={styles.step} key={step.num} data-reveal style={{ '--reveal-delay': `${i * 120}ms` } as React.CSSProperties}>
               <div className={styles.num}>{step.num}</div>
               <h3>{step.title}</h3>
               <p>{step.body}</p>

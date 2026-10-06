@@ -5,14 +5,16 @@ export default function Features() {
     <section className="band bandLight" id="features">
       <div className="wrap">
         <div className="kicker">A look at what we’re building</div>
-        <h2>A little guidance.<br />A community in your corner.</h2>
-        <p className="lede">
-          Both are scoped deliberately — the assistant declines anything outside agriculture, and
-          rooms are invite-only, not public.
-        </p>
+        <div className="sectionHead">
+          <h2>A little guidance.<br />A community in your corner.</h2>
+          <p className="lede">
+            Both are scoped deliberately — the assistant declines anything outside agriculture, and
+            rooms are invite-only, not public.
+          </p>
+        </div>
 
         <div className={styles.featureGrid}>
-          <div className={styles.featurePanel}>
+          <div className={styles.featurePanel} data-reveal>
             <h3>Ask Furrow</h3>
             <div className={styles.sub}>A growing-practices assistant — nothing else</div>
             <div className={styles.chatPreview}>
@@ -38,7 +40,7 @@ export default function Features() {
             </div>
           </div>
 
-          <div className={styles.featurePanel}>
+          <div className={styles.featurePanel} data-reveal style={{ '--reveal-delay': '140ms' } as React.CSSProperties}>
             <h3>Grower circles</h3>
             <div className={styles.sub}>Invite-only rooms for people growing near you</div>
             <div className={styles.roomPreview}>

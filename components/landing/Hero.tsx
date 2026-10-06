@@ -37,7 +37,11 @@ export default function Hero() {
       <div className={`wrap ${styles.grid}`}>
         <div className={styles.copy}>
           <div className={styles.eyebrow}><span /> A little knowledge. A better harvest.</div>
-          <h1 id="hero-heading">Good things<br />start with<br /><em>what you know.</em></h1>
+          <h1 id="hero-heading">
+            <span className={styles.line}><span style={{ '--i': 0 } as React.CSSProperties}>Good things</span></span>
+            <span className={styles.line}><span style={{ '--i': 1 } as React.CSSProperties}>start with</span></span>
+            <span className={styles.line}><span style={{ '--i': 2 } as React.CSSProperties}><em>what you know.</em></span></span>
+          </h1>
           <p>A growing companion for your soil, your crops, and your season. Practical lessons and a community to help you grow with confidence.</p>
           <div className="heroActions">
             <a className="btnPrimary" href="#start">Join the pilot <span aria-hidden="true">↗</span></a>
@@ -76,7 +80,12 @@ export default function Hero() {
           <div className={styles.caption}><span>Rooted in local knowledge</span><span className={styles.growCue}>Scroll to grow ↓</span></div>
         </div>
       </div>
-      <div className={`wrap ${styles.promise}`}><span>A companion for every step</span><span>01 &nbsp; Learn with the season</span><span>02 &nbsp; Ask better questions</span><span>03 &nbsp; Grow together</span></div>
+      <div className={`wrap ${styles.promise}`}>
+        <span className={styles.promiseLead}>A companion for every step</span>
+        <span><b aria-hidden="true">01</b>Learn with the season</span>
+        <span><b aria-hidden="true">02</b>Ask better questions</span>
+        <span><b aria-hidden="true">03</b>Grow together</span>
+      </div>
     </section>
   );
 }

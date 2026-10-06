@@ -3,9 +3,9 @@ import styles from './Cta.module.css';
 
 export default function Cta() {
   return (
-    <section className={`band ${styles.ctaBand}`} id="start" aria-labelledby="pilot-heading">
+    <section className={`band grain ${styles.ctaBand}`} id="start" aria-labelledby="pilot-heading">
       <div className={`wrap ${styles.ctaGrid}`}>
-        <div className={styles.copy}>
+        <div className={styles.copy} data-reveal>
           <div className="kicker">Be part of the first season</div>
           <h2 id="pilot-heading">Let’s grow<br />something <em>good.</em></h2>
           <p className="lede">We’re building Furrow with the people who’ll use it. Join the pilot waitlist and help shape a more useful growing companion.</p>

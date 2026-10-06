@@ -1,31 +1,32 @@
 ﻿.ctaBand { background: #e7ecdc; color: var(--text-on-light); border-top: 1px solid #d3dbc4; }
-.ctaGrid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: center; }
+.ctaGrid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 140px); align-items: center; }
 .copy :global(.kicker) { color: #547043; }
-.copy h2 { font-size: clamp(44px, 4.8vw, 66px); max-width: 15ch; letter-spacing: -.035em; }
-.copy h2 em { color: #607c4d; font-weight: 400; }
-.copy :global(.lede) { font-size: 16px; max-width: 38ch; }
-.benefits { list-style: none; display: grid; gap: 23px; margin-top: 32px; }
-.benefits li { display: flex; gap: 17px; align-items: flex-start; }
-.benefits li > span { font-size: 10px; color: #536c45; border: 1px solid #bbc8aa; border-radius: 50%; width: 30px; height: 30px; display: grid; place-items: center; flex-shrink: 0; }
-.benefits strong { font-size: 13px; font-weight: 600; }
-.benefits p { font-size: 12px; color: #647057; margin-top: 6px; line-height: 1.6; }
-.smallNote { font-size: 11px; line-height: 1.7; max-width: 40ch; color: #66735a; margin-top: 30px; }
-.formCard { padding: 34px; border: 1px solid #d6ddc9; border-radius: 12px; background: #fafaf4; box-shadow: 0 18px 45px #29392308; min-width: 0; }
+.copy h2 { font-size: clamp(52px, 6vw, 88px); max-width: 15ch; letter-spacing: -.045em; line-height: .98; }
+.copy h2 em { color: #607c4d; font-style: italic; font-weight: 400; }
+.copy :global(.lede) { font-size: 17px; max-width: 38ch; }
+.benefits { list-style: none; display: grid; gap: 0; margin-top: 40px; border-top: 1px solid #cdd6bd; }
+.benefits li { display: flex; gap: 20px; align-items: flex-start; padding: 22px 0; border-bottom: 1px solid #cdd6bd; }
+.benefits li > span { font-family: var(--font-display); font-size: 28px; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1px #7c9467; min-width: 44px; line-height: 1; }
+.benefits strong { font-size: 15px; font-weight: 600; }
+.benefits p { font-size: 14px; color: #647057; margin-top: 6px; line-height: 1.6; }
+.smallNote { font-size: 13px; line-height: 1.7; max-width: 40ch; color: #66735a; margin-top: 30px; }
+.formCard { position: relative; padding: 44px; border: 1px solid rgba(255, 255, 255, .85); border-radius: 28px; background: var(--paper); box-shadow: 0 1px 0 #fff inset, 0 0 0 8px rgba(250, 248, 238, .45), 0 50px 90px -40px rgba(23, 41, 21, .45); min-width: 0; }
 .formTop { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
-.formTop h3 { font-size: 30px; }
-.formTop > span { font-size: 8px; letter-spacing: .1em; color: #647c50; }
-.formIntro { font-size: 12px; color: #6d7463; margin: 12px 0 28px; }
-.fields { border: 0; min-width: 0; display: grid; gap: 19px; }
-.fields label { display: block; font-size: 12px; font-weight: 500; line-height: 1.5; }
-.fields input:not([type="checkbox"]), .fields select { display: block; width: 100%; min-width: 0; border: 1px solid #d1d8c7; border-radius: 5px; background: #fff; color: #2d3d29; padding: 12px; margin-top: 7px; font-size: 14px; line-height: 1.4; }
-.fields input::placeholder { color: #7b8173; font-size: 12px; }
-.fields input:focus, .fields select:focus { border-color: #5f7a4f; outline: 2px solid #b9caac; outline-offset: 2px; }
+.formTop h3 { font-size: 38px; letter-spacing: -.03em; }
+.formTop > span { font-size: 11px; letter-spacing: .14em; color: #647c50; }
+.formIntro { font-size: 14px; color: #6d7463; margin: 12px 0 30px; }
+.fields { border: 0; min-width: 0; display: grid; gap: 20px; }
+.fields label { display: block; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.fields input:not([type="checkbox"]), .fields select { display: block; width: 100%; min-width: 0; border: 1px solid #d1d8c7; border-radius: 12px; background: #fff; color: #2d3d29; padding: 14px 16px; margin-top: 8px; font-size: 15px; line-height: 1.4; transition: border-color .25s, box-shadow .25s, background .25s; }
+.fields input:not([type="checkbox"]):hover, .fields select:hover { border-color: #aebb9d; }
+.fields input::placeholder { color: #7b8173; font-size: 14px; }
+.fields input:focus, .fields select:focus { border-color: #5f7a4f; outline: none; box-shadow: 0 0 0 4px rgba(95, 122, 79, .2); }
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 .optional { font-weight: 400; color: #77816b; }
-.fields .consent { display: flex; align-items: flex-start; gap: 10px; font-size: 10px; font-weight: 400; line-height: 1.7; color: #65705a; }
+.fields .consent { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; font-weight: 400; line-height: 1.7; color: #65705a; }
 .consent input { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; accent-color: #3b593c; }
-.submit { width: 100%; font-size: 13px; justify-content: space-between; }
-.formFootnote { font-size: 10px; color: #707968; text-align: center; line-height: 1.7; margin-top: 16px; }
+.submit { width: 100%; font-size: 15px; justify-content: space-between; padding: 17px 28px; }
+.formFootnote { font-size: 12px; color: #707968; text-align: center; line-height: 1.7; margin-top: 16px; }
 .honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .error { color: #8b352c; background: #f8ece6; border-radius: 5px; font-size: 12px; line-height: 1.6; padding: 12px; margin-top: 15px; }
 .success { padding: 44px 0; }
@@ -34,6 +35,6 @@
 .success h3 { font-size: 40px; }
 .success p { font-size: 14px; line-height: 1.8; margin-top: 20px; color: #647057; }
 .backLink { display: inline-block; margin-top: 24px; font-size: 13px; text-underline-offset: 5px; }
-@media (max-width: 960px) { .ctaGrid { gap: 35px; } .formCard { padding: 26px; } .row { grid-template-columns: 1fr; gap: 19px; } }
+@media (max-width: 960px) { .ctaGrid { gap: 35px; } .formCard { padding: 30px; } .row { grid-template-columns: 1fr; gap: 19px; } }
 @media (max-width: 760px) { .ctaGrid { grid-template-columns: 1fr; gap: 40px; } .formCard { padding: 26px 22px; } .formTop { flex-wrap: wrap; } .fields input:not([type="checkbox"]), .fields select { font-size: 16px; } }
 

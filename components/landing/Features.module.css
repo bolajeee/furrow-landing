@@ -1,33 +1,47 @@
 .featureGrid {
-  margin-top: 56px;
+  margin-top: clamp(56px, 6vw, 110px);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 56px);
+  align-items: stretch;
 }
 
 .featurePanel {
-  background: #e9eddf;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, #eef1e3, #e3e9d6);
   border: 1px solid #d5ddc8;
-  border-radius: 12px;
-  padding: 32px;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--shadow-soft);
+  transition: transform .6s var(--ease-out), box-shadow .6s var(--ease-out);
+}
+
+.featurePanel:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 0 40px 80px -30px rgba(23, 41, 21, .38);
 }
 
 .featurePanel h3 {
-  font-size: 30px;
-  margin-bottom: 6px;
+  font-size: 36px;
+  letter-spacing: -.03em;
+  margin-bottom: 8px;
 }
 
 .sub {
-  font-size: 14px;
+  font-size: 15px;
   opacity: 0.68;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .chatPreview,
 .roomPreview {
-  border: 1px solid var(--rule-on-light);
-  border-radius: 4px;
-  background: #f6f1e2;
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 0 20px 40px -24px rgba(23, 41, 21, .35);
   overflow: hidden;
 }
 
@@ -57,11 +71,14 @@
 }
 
 .bubble {
-  max-width: 82%;
-  padding: 10px 13px;
-  border-radius: 3px;
-  line-height: 1.45;
+  max-width: 84%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  line-height: 1.5;
 }
+
+.bubbleUser { border-bottom-right-radius: 4px; }
+.bubbleBot { border-bottom-left-radius: 4px; }
 
 .bubbleUser {
   align-self: flex-end;
@@ -76,9 +93,9 @@
 }
 
 .chatScopeNote {
-  font-size: 12px;
+  font-size: 13px;
   opacity: 0.8;
-  padding: 10px 16px;
+  padding: 12px 16px;
   border-top: 1px solid var(--rule-on-light);
 }
 
@@ -130,4 +147,4 @@
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 480px) { .featurePanel { padding: 22px 16px; } .roomHead { align-items: flex-start; gap: 10px; flex-direction: column; } .bubble { max-width: 94%; } }
+@media (max-width: 480px) { .featurePanel { padding: 24px 16px; border-radius: 18px; } .roomHead { align-items: flex-start; gap: 10px; flex-direction: column; } .bubble { max-width: 94%; } }

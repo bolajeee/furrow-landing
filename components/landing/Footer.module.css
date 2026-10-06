@@ -1,13 +1,37 @@
 .footer {
   border-top: 1px solid var(--rule);
-  padding: 32px 0;
-  font-size: 13px;
+  padding: 72px 0 32px;
+  font-size: 14px;
   color: var(--text-on-dark-dim);
+  overflow: hidden;
 }
 
 .inner {
+  display: grid;
+  gap: 40px;
+}
+
+.mark {
+  font-family: var(--font-display);
+  font-size: clamp(96px, 22vw, 300px);
+  line-height: .8;
+  letter-spacing: -.07em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(169, 195, 146, .35);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.mark span { color: var(--accent-harvest); -webkit-text-stroke: 0; }
+
+.row {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
 }
+
+.row a { text-underline-offset: 5px; transition: color .2s; }
+.row a:hover { color: var(--text-on-dark); }

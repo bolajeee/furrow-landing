@@ -1,33 +1,80 @@
-.steps {
-  margin-top: 56px;
+.split {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(40px, 7vw, 140px);
+  align-items: start;
 }
+
+.sticky {
+  position: sticky;
+  top: 140px;
+}
+
+.steps {
+  border-top: 1px solid var(--rule);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(110px, 12vw, 200px) minmax(0, 1fr);
+  column-gap: clamp(20px, 3vw, 56px);
+  align-items: start;
+  padding: clamp(36px, 4.5vw, 64px) 0;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left .6s var(--ease-out);
+}
+
+.step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  background: var(--accent-growth-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .9s var(--ease-out);
+}
+
+.step:hover::before { transform: scaleX(1); }
+.step:hover { padding-left: 16px; }
 
 .num {
+  grid-row: span 2;
   font-family: var(--font-display);
-  font-size: 15px;
-  color: var(--accent-growth-bright);
+  font-weight: 400;
+  font-size: clamp(84px, 9vw, 160px);
+  line-height: .85;
+  letter-spacing: -.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(169, 195, 146, .55);
+  transition: color .5s, -webkit-text-stroke-color .5s;
 }
+
+.step:hover .num { color: var(--accent-growth-bright); -webkit-text-stroke-color: var(--accent-growth-bright); }
 
 .step h3 {
-  font-size: 25px;
-  margin: 10px 0 8px;
+  font-size: clamp(26px, 2.6vw, 40px);
+  letter-spacing: -.025em;
+  margin: 0 0 14px;
 }
-
-.step { border-top: 1px solid var(--rule); padding-top: 25px; }
-.num { display: inline-grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--rule); border-radius: 50%; margin-bottom: 14px; }
 
 .step p {
-  font-size: 14.5px;
-  line-height: 1.6;
-  opacity: 0.72;
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.74;
+  max-width: 44ch;
 }
 
-@media (max-width: 860px) {
-  .steps {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+@media (max-width: 960px) {
+  .split { grid-template-columns: 1fr; gap: 56px; }
+  .sticky { position: static; }
+}
+
+@media (max-width: 560px) {
+  .step { grid-template-columns: 1fr; }
+  .num { font-size: 72px; margin-bottom: 18px; grid-row: auto; }
+  .step:hover { padding-left: 0; }
 }
