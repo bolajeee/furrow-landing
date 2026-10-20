@@ -1,7 +1,7 @@
 .footer {
   border-top: 1px solid var(--rule);
   padding: 72px 0 32px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-on-dark-dim);
   overflow: hidden;
 }
@@ -42,6 +42,8 @@
   padding-top: 24px;
   border-top: 1px solid var(--rule);
 }
+
+.sign { display: flex; align-items: center; gap: 10px; }
 
 .row a { text-underline-offset: 5px; transition: color .2s; }
 .row a:hover { color: var(--text-on-dark); }

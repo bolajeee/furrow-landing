@@ -58,13 +58,13 @@
 .fallbackPin { cursor: pointer; }
 .fallbackDot { fill: #f1ead9; }
 .fallbackDotActive { fill: #6e9d5e; }
-.fallbackLabel { fill: var(--text-on-dark-dim); font-size: 12px; font-family: var(--font-body); }
+.fallbackLabel { fill: var(--text-on-dark-dim); font-size: 14px; font-family: var(--font-body); }
 
 .tooltip {
   position: absolute;
   z-index: 6;
   pointer-events: none;
-  max-width: 240px;
+  max-width: 280px;
   padding: 14px 16px;
   border-radius: 14px;
   background: rgba(243, 238, 218, .92);
@@ -83,14 +83,14 @@
 }
 
 .tooltipRegion {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--accent-growth);
 }
 
 .tooltipComment {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.4;
   margin-top: 5px;
 }
@@ -137,14 +137,14 @@
 }
 
 .statRegion {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--accent-growth-bright);
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 
 .statHeadline {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--text-on-dark-dim);
   margin-top: 16px;
@@ -186,8 +186,8 @@
   }
 }
 
-.globeCopy :global(.lede) { font-size: 15px; line-height: 1.8; color: var(--text-on-dark-dim); margin-top: 20px; }
-.exampleNote { margin-top: 20px; font-size: 12px; line-height: 1.7; color: var(--text-on-dark-dim); }
+.globeCopy :global(.lede) { font-size: 18px; line-height: 1.7; color: var(--text-on-dark-dim); margin-top: 20px; }
+.exampleNote { margin-top: 20px; font-size: 14px; line-height: 1.7; color: var(--text-on-dark-dim); }
 .dot, .dotActive { width: 28px; height: 28px; border: 9px solid var(--bg-dark); padding: 0; cursor: pointer; }
 .cardActive { opacity: 1; visibility: visible; transform: translateY(0); }
 .comment { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 28px); line-height: 1.4; margin-top: 16px; }

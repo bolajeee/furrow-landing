@@ -30,8 +30,9 @@
 }
 
 .sub {
-  font-size: 15px;
-  opacity: 0.68;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-soft);
   margin-bottom: 28px;
 }
 
@@ -49,7 +50,7 @@
 .chatHead {
   padding: 12px 16px;
   border-bottom: 1px solid var(--rule-on-light);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -68,7 +69,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .bubble {
@@ -94,8 +95,8 @@
 }
 
 .chatScopeNote {
-  font-size: 13px;
-  opacity: 0.8;
+  font-size: 15px;
+  color: var(--ink-soft);
   padding: 12px 16px;
   border-top: 1px solid var(--rule-on-light);
 }
@@ -109,12 +110,12 @@
 }
 
 .roomName {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 }
 
 .roomCode {
-  font-size: 12px;
+  font-size: 14px;
   font-family: monospace;
   background: var(--bg-light);
   border: 1px dashed var(--rule-on-light);
@@ -130,7 +131,7 @@
 }
 
 .roomMsg {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .who {
@@ -139,14 +140,13 @@
 }
 
 .bodyText {
-  opacity: 0.85;
   line-height: 1.5;
 }
 
 .source {
   display: block;
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--accent-growth);
 }
@@ -159,14 +159,14 @@
 
 .awayBody {
   padding: 16px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .awayLabel {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: .02em;
-  opacity: .7;
+  color: var(--ink-soft);
   margin-bottom: 8px;
 }
 
@@ -187,11 +187,10 @@
 }
 
 .checklist li span { color: var(--accent-growth); font-weight: 700; }
-.checklist em { margin-left: auto; padding-left: 8px; font-style: normal; font-size: 12px; opacity: .6; white-space: nowrap; }
+.checklist em { margin-left: auto; padding-left: 8px; font-style: normal; font-size: 14px; color: var(--ink-soft); white-space: nowrap; }
 
 .awayNote {
   line-height: 1.5;
-  opacity: .85;
   margin-bottom: 14px;
 }
 
@@ -202,8 +201,8 @@
 }
 
 .chip {
-  font-size: 12px;
-  padding: 4px 10px;
+  font-size: 14px;
+  padding: 5px 12px;
   border-radius: 999px;
   border: 1px solid var(--rule-on-light);
   background: #fff;
