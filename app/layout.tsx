@@ -20,12 +20,12 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Furrow — Grow what you know',
+  title: 'Furrow — Your first home harvest, planned around your week',
   description:
-    'Meet Furrow, a growing companion in the making. Practical local knowledge, a farming assistant, and grower circles. Join the pilot waitlist.',
+    'Furrow helps busy Nigerian households grow vegetables at home: a weekly plan that fits your time, safe setups from what you already own, low-effort watering for days away, a farming-only assistant, and invite-only grower circles. Join the pilot waitlist.',
   openGraph: {
-    title: 'Furrow — Grow what you know',
-    description: 'A growing companion in the making. Join the pilot waitlist.',
+    title: 'Furrow — Your first home harvest, planned around your week',
+    description: 'Home growing for busy Nigerian households. Join the pilot waitlist.',
     type: 'website',
   },
 };

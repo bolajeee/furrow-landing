@@ -1,10 +1,10 @@
-﻿# Furrow landing page
+# Furrow landing page
 
-A responsive Next.js 14 landing page for the upcoming Furrow mobile app.
+A responsive Next.js 14 landing page for Furrow, a home-growing web app for busy Nigerian households.
 
-## Mobile development documentation
+## Product documentation
 
-Start with [doc/readme.md](doc/readme.md) for the planned Flutter app: vegetable self-growing, practical learning, and community. The directory includes features, user journeys, architecture, data/API proposals, content and moderation plans, testing, a roadmap, and an implementation progress tracker. Mobile functionality is planned, not implemented in this web repository.
+The product spec lives in the `furrow-mobile/docs` folder, with [requirements.md](../furrow-mobile/docs/requirements.md) as the source of truth. The product is a mobile-first installable web app (PWA), not a native or Flutter app. Page copy should match that spec: Nigerian households, one Tier 1 crop, reuse-first setups with safety labels, a weekly plan around the household's time (including away mode), a farming-only assistant, and invite-only circles. No price, savings, or invented community figures on the page.
 
 ## Development
 
@@ -17,14 +17,14 @@ Open http://localhost:3000. Use `npm run build` and `npm start` for production. 
 
 ## Pilot signup
 
-All pilot links lead to the form at `#start`. It collects a name, email, region, growing experience, optional crops, and permission to send pilot updates.
+All pilot links lead to the form at `#start`. It collects a name, email, area and city, growing experience, the time the household could give each week, optional crops, and permission to send pilot updates.
 
 1. Copy `.env.example` to `.env.local`.
 2. Set `PILOT_WEBHOOK_URL` to your signup service's HTTPS endpoint.
 3. Set `PILOT_WEBHOOK_TOKEN` if your service requires a bearer token.
 4. Restart the server (or configure these environment variables on your hosting provider).
 
-The endpoint receives JSON with `name`, `email`, `location`, `role`, `crops`, `consent`, `source`, and `submittedAt`. It must persist the signup and return a 2xx response. Configure the receiving service to deduplicate by email and apply rate limits to the public signup endpoint at your hosting layer.
+The endpoint receives JSON with `name`, `email`, `location`, `role` (`new`, `tried`, `growing`, `host`, `other`), `time` (`under-30m`, `30-60m`, `1-2h`, `over-2h`), `crops`, `consent`, `source`, and `submittedAt`. It must persist the signup and return a 2xx response. Configure the receiving service to deduplicate by email and apply rate limits to the public signup endpoint at your hosting layer.
 
 Secrets stay on the server. `/api/pilot` validates fields and consent, limits request size, checks browser origin, includes a honeypot, and times out failed deliveries. Without a configured destination, it returns an unavailable message. The UI preserves input on errors and only confirms signup after successful delivery. No submissions are stored locally.
 
@@ -49,10 +49,10 @@ npm run start -- -p 3100
 ## Page structure
 
 - `Hero`: responsive journal illustration with a scroll-grown flower; reduced-motion visitors see the full bloom.
-- `HowItWorks`: three steps for the planned app.
-- `Globe`: smooth region rotation and fading comments with previous/next arrows, region dots, and keyboard controls.
-- `Features`: previews of the assistant and grower circles.
+- `HowItWorks`: four steps that follow onboarding, setup, weekly plan and away mode, assistant and circles.
+- `Globe`: settles on example circles in Nigerian cities when scrolled into view, with previous/next arrows, city dots, and keyboard controls. The canvas sizes from its container (ResizeObserver), renders only while on screen, and falls back to a static SVG map when WebGL is unavailable or the context is lost.
+- `Features`: previews of away mode, the assistant, and grower circles.
 - `Cta` / `PilotForm`: pilot signup and submission states.
 - `app/api/pilot/route.ts`: server-side webhook integration.
 
-Community counts and conversations are illustrative placeholders, labeled on the page. The mobile app is still in development; joining the list does not grant immediate app access.
+Community counts and conversations are illustrative placeholders, labeled on the page. The app is still in development; joining the list does not grant immediate app access.

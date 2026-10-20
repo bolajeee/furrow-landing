@@ -1,8 +1,8 @@
 .featureGrid {
   margin-top: clamp(56px, 6vw, 110px);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(24px, 3vw, 56px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 44px);
   align-items: stretch;
 }
 
@@ -13,7 +13,7 @@
   background: linear-gradient(160deg, #eef1e3, #e3e9d6);
   border: 1px solid #d5ddc8;
   border-radius: 24px;
-  padding: 40px;
+  padding: clamp(28px, 2.6vw, 40px);
   box-shadow: var(--shadow-soft);
   transition: transform .6s var(--ease-out), box-shadow .6s var(--ease-out);
 }
@@ -24,7 +24,7 @@
 }
 
 .featurePanel h3 {
-  font-size: 36px;
+  font-size: clamp(28px, 2.4vw, 36px);
   letter-spacing: -.03em;
   margin-bottom: 8px;
 }
@@ -36,7 +36,8 @@
 }
 
 .chatPreview,
-.roomPreview {
+.roomPreview,
+.awayPreview {
   flex: 1;
   border: 1px solid rgba(255, 255, 255, .8);
   border-radius: 16px;
@@ -140,6 +141,78 @@
 .bodyText {
   opacity: 0.85;
   line-height: 1.5;
+}
+
+.source {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-growth);
+}
+
+.prompt {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg-light);
+}
+
+.awayBody {
+  padding: 16px;
+  font-size: 14px;
+}
+
+.awayLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  opacity: .7;
+  margin-bottom: 8px;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checklist li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  line-height: 1.45;
+}
+
+.checklist li span { color: var(--accent-growth); font-weight: 700; }
+.checklist em { margin-left: auto; padding-left: 8px; font-style: normal; font-size: 12px; opacity: .6; white-space: nowrap; }
+
+.awayNote {
+  line-height: 1.5;
+  opacity: .85;
+  margin-bottom: 14px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-on-light);
+  background: #fff;
+}
+
+/* Three panels need room; between tablet and wide desktop, the first panel spans the row. */
+@media (max-width: 1180px) {
+  .featureGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .featurePanel:first-child { grid-column: 1 / -1; }
 }
 
 @media (max-width: 860px) {

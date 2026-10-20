@@ -7,7 +7,7 @@ const ts = require('typescript');
 const compiled = ts.transpileModule(fs.readFileSync('app/api/pilot/route.ts', 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
 }).outputText;
-const valid = { name: ' Amina ', email: 'AMINA@example.com', location: 'Kaduna, Nigeria', role: 'farmer', crops: 'Maize', consent: true, website: '' };
+const valid = { name: ' Amina ', email: 'AMINA@example.com', location: 'Yaba, Lagos', role: 'new', time: '30-60m', crops: 'Pepper', consent: true, website: '' };
 
 function handler(env = {}, fetch = async () => new Response(null, { status: 204 })) {
   const context = { exports: {}, require, Buffer, URL, AbortSignal, process: { env: { NODE_ENV: 'test', ...env } }, fetch };
@@ -23,8 +23,8 @@ function request(data = valid, headers = {}) {
 test('does not claim success when delivery is unconfigured', async () => {
   assert.equal((await handler()(request())).status, 503);
 });
-test('validates required fields, email, role, consent and lengths', async () => {
-  for (const changes of [{ name: ' ' }, { email: 'broken' }, { location: '' }, { role: 'unknown' }, { consent: false }, { name: 'x'.repeat(101) }, { crops: 'x'.repeat(241) }]) {
+test('validates required fields, email, role, time, consent and lengths', async () => {
+  for (const changes of [{ name: ' ' }, { email: 'broken' }, { location: '' }, { role: 'unknown' }, { role: 'farmer' }, { time: '' }, { time: 'forever' }, { consent: false }, { name: 'x'.repeat(101) }, { crops: 'x'.repeat(241) }]) {
     assert.equal((await handler()(request({ ...valid, ...changes }))).status, 400);
   }
 });
@@ -51,6 +51,7 @@ test('forwards normalized fields and reports success only after delivery', async
   assert.equal(delivered.email, 'amina@example.com');
   assert.equal(delivered.name, 'Amina');
   assert.equal(delivered.consent, true);
+  assert.equal(delivered.time, '30-60m');
   assert.equal(delivered.unwanted, undefined);
   assert.ok(delivered.submittedAt);
 });

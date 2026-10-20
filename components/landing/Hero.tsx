@@ -42,12 +42,12 @@ export default function Hero() {
             <span className={styles.line}><span style={{ '--i': 1 } as React.CSSProperties}>start with</span></span>
             <span className={styles.line}><span style={{ '--i': 2 } as React.CSSProperties}><em>what you know.</em></span></span>
           </h1>
-          <p>A growing companion for your soil, your crops, and your season. Practical lessons and a community to help you grow with confidence.</p>
+          <p>Your first home harvest, planned around a busy week. Furrow fits a weekly plan to the time you have, starts with containers you already own, keeps pots watered while you&rsquo;re away, and puts a circle of growers near you in your corner.</p>
           <div className="heroActions">
             <a className="btnPrimary" href="#start">Join the pilot <span aria-hidden="true">↗</span></a>
             <a className={styles.secondary} href="#how">Discover Furrow <span aria-hidden="true">↓</span></a>
           </div>
-          <div className={styles.note}>Made for growers. Mobile app in development.</div>
+          <div className={styles.note}>Works in your phone&rsquo;s browser, no app store needed. Pilot starting in Nigeria.</div>
         </div>
         <div className={styles.visual} data-journal>
           <div className={styles.visualTop}><span>THE GROWING JOURNAL</span><span>01 / A NEW SEASON</span></div>
@@ -82,9 +82,9 @@ export default function Hero() {
       </div>
       <div className={`wrap ${styles.promise}`}>
         <span className={styles.promiseLead}>A companion for every step</span>
-        <span><b aria-hidden="true">01</b>Learn with the season</span>
-        <span><b aria-hidden="true">02</b>Ask better questions</span>
-        <span><b aria-hidden="true">03</b>Grow together</span>
+        <span><b aria-hidden="true">01</b>Plan around your week</span>
+        <span><b aria-hidden="true">02</b>Start with what you own</span>
+        <span><b aria-hidden="true">03</b>Grow with your circle</span>
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ export default function PilotForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.get('name'), email: form.get('email'), location: form.get('location'),
-          role: form.get('role'), crops: form.get('crops'), consent: form.get('consent') === 'on',
+          role: form.get('role'), time: form.get('time'), crops: form.get('crops'), consent: form.get('consent') === 'on',
           website: form.get('website'),
         }),
         signal: AbortSignal.timeout(15000),
@@ -57,11 +57,16 @@ export default function PilotForm() {
               <label htmlFor="pilot-name">Your name<input id="pilot-name" name="name" autoComplete="name" placeholder="e.g. Amina Yusuf" required maxLength={100} /></label>
               <label htmlFor="pilot-email">Email address<input id="pilot-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required maxLength={254} /></label>
             </div>
-            <label htmlFor="pilot-location">Where do you grow?<input id="pilot-location" name="location" autoComplete="address-level2" placeholder="City or region, country" required maxLength={160} /></label>
-            <label htmlFor="pilot-role">Which best describes you?
-              <select id="pilot-role" name="role" defaultValue="" required><option value="" disabled>Select your growing experience</option><option value="farmer">Farmer / smallholder</option><option value="gardener">Home or community gardener</option><option value="beginner">Just getting started</option><option value="educator">Agricultural educator / advisor</option><option value="other">Something else</option></select>
-            </label>
-            <label htmlFor="pilot-crops">What are you growing? <span className={styles.optional}>(optional)</span><input id="pilot-crops" name="crops" placeholder="e.g. tomatoes, maize, leafy greens" maxLength={240} /></label>
+            <label htmlFor="pilot-location">Where would you grow?<input id="pilot-location" name="location" autoComplete="address-level2" placeholder="Area and city, e.g. Yaba, Lagos" required maxLength={160} /></label>
+            <div className={styles.row}>
+              <label htmlFor="pilot-role">Which best describes you?
+                <select id="pilot-role" name="role" defaultValue="" required><option value="" disabled>Select one</option><option value="new">I’ve never grown food at home</option><option value="tried">I’ve tried, but no harvest yet</option><option value="growing">I already grow a few things</option><option value="host">I’d like to host a circle</option><option value="other">Something else</option></select>
+              </label>
+              <label htmlFor="pilot-time">Time you could give it each week
+                <select id="pilot-time" name="time" defaultValue="" required><option value="" disabled>Select one</option><option value="under-30m">Under 30 minutes</option><option value="30-60m">30 to 60 minutes</option><option value="1-2h">1 to 2 hours</option><option value="over-2h">More than 2 hours</option></select>
+              </label>
+            </div>
+            <label htmlFor="pilot-crops">What would you like to grow? <span className={styles.optional}>(optional)</span><input id="pilot-crops" name="crops" placeholder="e.g. pepper, tomatoes, leafy greens" maxLength={240} /></label>
             <div className={styles.honeypot} aria-hidden="true"><label htmlFor="pilot-website">Leave this empty<input id="pilot-website" name="website" tabIndex={-1} autoComplete="off" /></label></div>
             <label className={styles.consent} htmlFor="pilot-consent"><input id="pilot-consent" name="consent" type="checkbox" required /><span>I agree to be contacted by email about the Furrow pilot. My details will be used to coordinate pilot access and updates.</span></label>
             <button className={`btnPrimary ${styles.submit}`} type="submit">{status === 'sending' ? 'Sending your request…' : 'Join the pilot'}<span aria-hidden="true">↗</span></button>

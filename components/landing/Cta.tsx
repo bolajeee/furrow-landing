@@ -14,7 +14,7 @@ export default function Cta() {
             <li><span aria-hidden="true">02</span><div><strong>Make it your own</strong><p>Your experience helps guide what we build next.</p></div></li>
             <li><span aria-hidden="true">03</span><div><strong>Start with community</strong><p>Help shape a space for people who love to grow.</p></div></li>
           </ul>
-          <p className={styles.smallNote}>Still taking root. We’ll share availability by email as the pilot develops.</p>
+          <p className={styles.smallNote}>The first pilot is small: a few circles of households in Nigeria, growing for six weeks. We’ll share availability by email as it takes shape.</p>
         </div>
         <PilotForm />
       </div>

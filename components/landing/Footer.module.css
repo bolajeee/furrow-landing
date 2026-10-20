@@ -11,18 +11,28 @@
   gap: 40px;
 }
 
+/* SVG outline of "furrow." sized like the old 22vw display text (viewBox height ≈ .745em). */
 .mark {
-  font-family: var(--font-display);
-  font-size: clamp(96px, 22vw, 300px);
-  line-height: .8;
-  letter-spacing: -.07em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(169, 195, 146, .35);
+  display: block;
+  height: calc(clamp(96px, 22vw, 300px) * .745);
+  width: auto;
+  max-width: 100%;
+  overflow: visible;
   user-select: none;
-  white-space: nowrap;
 }
 
-.mark span { color: var(--accent-harvest); -webkit-text-stroke: 0; }
+.outline {
+  fill: none;
+  stroke: rgba(169, 195, 146, .35);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.dot { fill: var(--accent-harvest); }
+
+/* Luminous balls tracing the outline (positioned by FooterMark). */
+.halo { fill: url(#furrow-glow); mix-blend-mode: screen; }
+.core { fill: #f6fbe9; }
 
 .row {
   display: flex;

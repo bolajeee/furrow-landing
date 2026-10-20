@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
-const roles = new Set(['farmer', 'gardener', 'beginner', 'educator', 'other']);
+const roles = new Set(['new', 'tried', 'growing', 'host', 'other']);
+const times = new Set(['under-30m', '30-60m', '1-2h', 'over-2h']);
 
 export async function POST(request: Request) {
   if (!request.headers.get('content-type')?.includes('application/json')) {
@@ -42,9 +43,10 @@ export async function POST(request: Request) {
   const email = field('email', 254).toLowerCase();
   const location = field('location', 160);
   const role = field('role', 30);
+  const time = field('time', 30);
   const crops = field('crops', 240);
-  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !location || !roles.has(role) || input.consent !== true || (input.crops && !crops)) {
-    return NextResponse.json({ error: 'Please enter your name, a valid email, your location and experience, and agree to pilot updates.' }, { status: 400 });
+  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !location || !roles.has(role) || !times.has(time) || input.consent !== true || (input.crops && !crops)) {
+    return NextResponse.json({ error: 'Please enter your name, a valid email, your location, experience and weekly time, and agree to pilot updates.' }, { status: 400 });
   }
 
   const webhook = process.env.PILOT_WEBHOOK_URL;
@@ -57,7 +59,7 @@ export async function POST(request: Request) {
     const response = await fetch(destination, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', ...(process.env.PILOT_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.PILOT_WEBHOOK_TOKEN}` } : {}) },
-      body: JSON.stringify({ name, email, location, role, crops, consent: true, source: 'furrow-landing', submittedAt: new Date().toISOString() }),
+      body: JSON.stringify({ name, email, location, role, time, crops, consent: true, source: 'furrow-landing', submittedAt: new Date().toISOString() }),
       signal: AbortSignal.timeout(10000),
       redirect: 'error',
       cache: 'no-store',

@@ -8,63 +8,88 @@ export default function Features() {
         <div className="sectionHead">
           <h2>A little guidance.<br />A community in your corner.</h2>
           <p className="lede">
-            Both are scoped deliberately — the assistant declines anything outside agriculture, and
-            rooms are invite-only, not public.
+            Each part is scoped on purpose: the plan fits your week, the assistant declines anything
+            outside growing, and circles are invite-only, not public. Previews below are examples.
           </p>
         </div>
 
         <div className={styles.featureGrid}>
           <div className={styles.featurePanel} data-reveal>
+            <h3>Made for busy weeks</h3>
+            <div className={styles.sub}>A plan on your free days, and away mode for the rest</div>
+            <div className={styles.awayPreview}>
+              <div className={styles.chatHead}>
+                <span className={styles.chatDot} /> Away Thu–Sun · 4 days
+              </div>
+              <div className={styles.awayBody}>
+                <div className={styles.awayLabel}>Before you go, Wednesday evening</div>
+                <ul className={styles.checklist}>
+                  <li><span aria-hidden="true">✓</span>Set up a bottle-cap drip in each pot <em>10 min</em></li>
+                  <li><span aria-hidden="true">✓</span>Water deeply, then mulch the soil <em>5 min</em></li>
+                  <li><span aria-hidden="true">○</span>Move pots out of full afternoon sun <em>2 min</em></li>
+                </ul>
+                <div className={styles.awayLabel}>While you’re away</div>
+                <p className={styles.awayNote}>Tasks paused. No reminders until Monday, then a short catch-up list.</p>
+                <div className={styles.chips}>
+                  <span className={styles.chip}>Bottle-cap drip · about 3–5 days</span>
+                  <span className={styles.chip}>Wick planter</span>
+                  <span className={styles.chip}>Clay pot (olla)</span>
+                </div>
+              </div>
+              <div className={styles.chatScopeNote}>Only techniques our reviewer has sourced or tested are shown. Days covered are estimates.</div>
+            </div>
+          </div>
+
+          <div className={styles.featurePanel} data-reveal style={{ '--reveal-delay': '120ms' } as React.CSSProperties}>
             <h3>Ask Furrow</h3>
-            <div className={styles.sub}>A growing-practices assistant — nothing else</div>
+            <div className={styles.sub}>A home-growing assistant — nothing else</div>
             <div className={styles.chatPreview}>
               <div className={styles.chatHead}>
                 <span className={styles.chatDot} /> Ask Furrow
               </div>
               <div className={styles.chatBody}>
                 <div className={`${styles.bubble} ${styles.bubbleUser}`}>
-                  My tomato leaves are curling and yellow at the edges — early blight?
+                  I’m travelling for 4 days. Will my pepper pots be OK?
                 </div>
                 <div className={`${styles.bubble} ${styles.bubbleBot}`}>
-                  Could be early blight, but yellowing that starts at leaf edges also points to
-                  inconsistent watering. Check the lower leaves first — mottled dark spots mean
-                  blight; if it&rsquo;s just edge-yellowing, ease off watering frequency.
+                  Likely, with some prep. Water deeply the evening before, mulch the soil, and set
+                  a bottle-cap drip in each pot. Move them out of full afternoon sun so the water
+                  lasts longer.
+                  <span className={styles.source}>From: Pepper guide · Watering</span>
                 </div>
-                <div className={`${styles.bubble} ${styles.bubbleUser}`}>What&rsquo;s the capital of France?</div>
+                <div className={`${styles.bubble} ${styles.bubbleUser}`}>What’s the capital of France?</div>
                 <div className={`${styles.bubble} ${styles.bubbleBot}`}>
-                  That&rsquo;s outside what I can help with — I only answer growing and farming
-                  questions. Ask me about crops, soil, pests, or planting timing.
+                  That’s outside what I can help with — I only answer growing questions.
                 </div>
               </div>
-              <div className={styles.chatScopeNote}>Scoped to agricultural best practices only</div>
+              <div className={styles.chatScopeNote}>Answers come from reviewed guides and name the section used</div>
             </div>
           </div>
 
-          <div className={styles.featurePanel} data-reveal style={{ '--reveal-delay': '140ms' } as React.CSSProperties}>
+          <div className={styles.featurePanel} data-reveal style={{ '--reveal-delay': '240ms' } as React.CSSProperties}>
             <h3>Grower circles</h3>
-            <div className={styles.sub}>Invite-only rooms for people growing near you</div>
+            <div className={styles.sub}>Invite-only, up to 25 households near you</div>
             <div className={styles.roomPreview}>
               <div className={styles.roomHead}>
-                <div className={styles.roomName}>Kaduna North Circle</div>
-                <div className={styles.roomCode}>Code: FRW-7K2Q</div>
+                <div className={styles.roomName}>Yaba Balcony Growers · 18 of 25</div>
+                <div className={styles.roomCode}>Code: K7Q2M4XA</div>
               </div>
               <div className={styles.roomMsgs}>
+                <div className={`${styles.roomMsg} ${styles.prompt}`}>
+                  <span className={styles.who}>This week’s prompt</span>
+                  <span className={styles.bodyText}>Post a photo of your setup. What did you reuse?</span>
+                </div>
                 <div className={styles.roomMsg}>
-                  <span className={styles.who}>Amina</span>
+                  <span className={styles.who}>Tolu</span>
                   <span className={styles.bodyText}>
-                    Started staggering my maize planting by 10 days across three plots — fewer
-                    losses to the last dry spell.
+                    Two old rice sacks on the balcony rail. Checked them in the materials list first.
                   </span>
                 </div>
                 <div className={styles.roomMsg}>
-                  <span className={styles.who}>Yusuf</span>
+                  <span className={styles.who}>Chinedu</span>
                   <span className={styles.bodyText}>
-                    Good call. I&rsquo;m trying that next season too. What spacing did you use?
+                    The bottle drip got my pots through a weekend in Ibadan. Refilled it Monday night.
                   </span>
-                </div>
-                <div className={styles.roomMsg}>
-                  <span className={styles.who}>Amina</span>
-                  <span className={styles.bodyText}>Kept it standard, 75cm — just split the sowing dates, not the layout.</span>
                 </div>
               </div>
             </div>
