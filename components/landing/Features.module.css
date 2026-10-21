@@ -6,34 +6,107 @@
   align-items: stretch;
 }
 
-.featurePanel {
+.featureCard {
   position: relative;
+  min-height: 600px;
+  perspective: 1400px;
+  border-radius: 24px;
+  outline-offset: 6px;
+}
+
+.featureCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform .75s var(--ease-out);
+}
+
+.featureCard:hover .featureCardInner,
+.featureCard:focus .featureCardInner,
+.featureCard:focus-within .featureCardInner {
+  transform: rotateY(180deg);
+}
+
+.featureFace {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background: linear-gradient(160deg, #eef1e3, #e3e9d6);
   border: 1px solid #d5ddc8;
   border-radius: 24px;
   padding: clamp(28px, 2.6vw, 40px);
   box-shadow: var(--shadow-soft);
-  transition: transform .6s var(--ease-out), box-shadow .6s var(--ease-out);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: box-shadow .6s var(--ease-out);
 }
 
-.featurePanel:hover {
-  transform: translateY(-6px);
+.featureCard:hover .featureFace,
+.featureCard:focus .featureFace,
+.featureCard:focus-within .featureFace {
   box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 0 40px 80px -30px rgba(23, 41, 21, .38);
 }
 
-.featurePanel h3 {
-  font-size: clamp(28px, 2.4vw, 36px);
+.featureFront {
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(126, 148, 75, .28), transparent 32%),
+    linear-gradient(160deg, #eef1e3, #dfe7d0);
+}
+
+.featureBack {
+  gap: 14px;
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, #e4ead7, #d8e1c9);
+}
+
+.featureNumber,
+.snapshotLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-growth);
+}
+
+.featureTitle h3 {
+  font-size: clamp(36px, 3.3vw, 54px);
   letter-spacing: -.03em;
-  margin-bottom: 8px;
+  line-height: .98;
+  max-width: 9ch;
+}
+
+.flipCue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(23, 41, 21, .18);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.flipCue span {
+  font-size: 22px;
+  transition: transform .4s var(--ease-out);
+}
+
+.featureCard:hover .flipCue span,
+.featureCard:focus .flipCue span {
+  transform: translate(3px, -3px);
 }
 
 .sub {
   font-size: 17px;
   line-height: 1.55;
   color: var(--ink-soft);
-  margin-bottom: 28px;
+  margin-top: 16px;
+  max-width: 28ch;
 }
 
 .chatPreview,
@@ -45,6 +118,13 @@
   background: var(--paper);
   box-shadow: 0 20px 40px -24px rgba(23, 41, 21, .35);
   overflow: hidden;
+}
+
+.featureBack .chatPreview,
+.featureBack .roomPreview,
+.featureBack .awayPreview {
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .chatHead {
@@ -211,7 +291,7 @@
 /* Three panels need room; between tablet and wide desktop, the first panel spans the row. */
 @media (max-width: 1180px) {
   .featureGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .featurePanel:first-child { grid-column: 1 / -1; }
+  .featureCard:first-child { grid-column: 1 / -1; }
 }
 
 @media (max-width: 860px) {
@@ -219,4 +299,14 @@
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 480px) { .featurePanel { padding: 24px 16px; border-radius: 18px; } .roomHead { align-items: flex-start; gap: 10px; flex-direction: column; } .bubble { max-width: 94%; } }
+@media (max-width: 480px) {
+  .featureCard { min-height: 650px; border-radius: 18px; }
+  .featureFace { padding: 24px 16px; border-radius: 18px; }
+  .featureTitle h3 { font-size: 42px; }
+  .roomHead { align-items: flex-start; gap: 10px; flex-direction: column; }
+  .bubble { max-width: 94%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featureCardInner { transition: none; }
+}
