@@ -6,7 +6,7 @@ export default function Features() {
       <div className="wrap">
         <div className="kicker">A look at what we’re building</div>
         <div className="sectionHead">
-          <h2>A little guidance.<br />.</h2>
+          <h2>A little guidance.</h2>
           <p className="lede">
             Each part is scoped on purpose: the plan fits your week, the assistant declines anything
             outside growing, and circles are invite-only, not public. Previews below are examples.
