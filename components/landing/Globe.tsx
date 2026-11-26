@@ -96,7 +96,9 @@ export default function Globe() {
       renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     } catch {
       // No WebGL (disabled, blocklisted GPU, or too many contexts): show the static map
-      // instead of an empty dark box.
+      // instead of an empty dark box. WebGL is the external system this effect syncs
+      // with, so recording its failure here is the intended use of an effect.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setWebglFailed(true);
       return;
     }
